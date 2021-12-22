@@ -1,0 +1,35 @@
+.searchbar {
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  height: 50px;
+  background-color: royalblue;
+}
+.searchbarLabel {
+  position: absolute;
+  display: block;
+  width: 20px;
+  height: 20px;
+  left: calc((100% - 300px) / 2);
+  background-color: skyblue;
+  border: 1px solid;
+}
+
+.searchbarLabel::before {
+}
+.searchbarSvg {
+  width: 18px;
+  height: 18px;
+  /* fill: olive; */
+}
+
+.searchbarInput {
+  width: 300px;
+  padding-left: 25px;
+  margin-right: 5px;
+}
+
+.searchbarButton {
+}
