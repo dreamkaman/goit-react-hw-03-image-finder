@@ -22,9 +22,11 @@ class Modal extends Component {
     }
   };
 
-  handleBackdropClick = () => {
+  handleBackdropClick = event => {
     // console.log(event);
-    this.props.closeModal();
+    if (event.target === event.currentTarget) {
+      this.props.closeModal();
+    }
   };
 
   render() {
@@ -34,10 +36,7 @@ class Modal extends Component {
 
     return createPortal(
       <div className={styles.overlay} onClick={this.handleBackdropClick}>
-        <div className={styles.modal}>
-          <h2>Privet!</h2>
-          <img src="" alt="" />
-        </div>
+        <div className={styles.modal}>{this.props.children}</div>
       </div>,
       modalPortal,
     );

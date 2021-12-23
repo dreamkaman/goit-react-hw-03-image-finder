@@ -13,6 +13,9 @@ const ImageGallery = ({ gallery, onShowModal }) => {
   //   searchPhotos = ((_page = 1), q);
   // const show = (!!this.state.gallery.length && "Hallo!");
   //  let elements = ``;
+  // componentDidIpdate() {
+  //   console.log("ImageGallery update");
+  // };
 
   // componentDidMount() {
   //   photosApi.searchPhotos((_page = 1), q);
@@ -23,9 +26,10 @@ const ImageGallery = ({ gallery, onShowModal }) => {
     return (
       <ImageGalleryItem
         key={image.id}
+        id={image.id}
         src={image.webformatURL}
         alt={image.tags}
-        handleShowModal={onShowModal}
+        handleShowModal={id => onShowModal(id)}
       />
     );
     // return `<li key=${image.id}><img src='${image.previewURL}' alt='${image.tags}'/></li>`;
