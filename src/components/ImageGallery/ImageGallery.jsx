@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 import ImageGalleryItem from './ImageGalleryItem';
 
 import styles from './ImageGallery.module.css';
@@ -21,3 +23,8 @@ const ImageGallery = props => {
 };
 
 export default ImageGallery;
+
+ImageGallery.propTypes = {
+  gallery: PropTypes.arrayOf(PropTypes.shape),
+  onShowModal: PropTypes.func,
+};

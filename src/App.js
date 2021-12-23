@@ -3,9 +3,7 @@ import { photosApi } from './shared/services/photos';
 
 import Searchbar from './components/Searchbar';
 import Loader from 'react-loader-spinner';
-// import Loader from './components/Loader';
 import ImageGallery from './components/ImageGallery';
-// import ImageGalleryItem from './components/ImageGallery/ImageGalleryItem';
 import Button from './components/Button';
 import Modal from './components/Modal';
 
@@ -17,44 +15,31 @@ class App extends Component {
     gallery: [],
     querySubmited: '',
     page: 1,
-    loadMore: false, //pereproverit!
+    // loadMore: false, //pereproverit!
     loading: false,
     showModal: false,
-    // currentId: null, //ne uveren
     currentLargeImageURL: '',
     currentTags: '',
   };
 
   componentDidUpdate(prevprops, prevstate) {
-    console.log('App did update');
-    console.log('this.state.querySubmited - ', this.state.querySubmited);
-    console.log('prevstate.querySubmited -', prevstate.querySubmited);
-    // console.log('prevstate', prevstate);
-    // console.log('this.state', this.state);
-
     if (prevstate.querySubmited && prevstate.querySubmited !== this.state.querySubmited) {
-      console.log('Query changed');
-
       this.setState({ gallery: [], page: 1 });
-    } //end if
+    }
+
     if (this.state.loading) {
       const { page, querySubmited } = this.state;
-      // console.log(query);
+
       photosApi.searchPhotos(page, querySubmited).then(res => {
         const newgallery = res.data.hits;
 
         this.setState(prevstate => ({
           gallery: [...prevstate.gallery, ...newgallery],
-          // querySubmited: query,
           page: prevstate.page + 1,
           loading: false,
         }));
       });
     }
-
-    // console.log(res.data.hits););
-
-    // this.setState({ querySubmited: query });
   }
 
   handleSubmit = query => {
@@ -64,21 +49,6 @@ class App extends Component {
     });
   };
 
-  // handleLoadMore = () => {
-  //   const { querySubmited, page } = this.state;
-  //   // console.log(query);
-
-  //   photosApi.searchPhotos(page, querySubmited).then(res => {
-  //     console.log('Works');
-
-  //     const newgallery = res.data.hits;
-
-  //     this.setState(prevstate => ({
-  //       gallery: [...prevstate.gallery, ...newgallery],
-  //       page: prevstate.page + 1,
-  //     }));
-  //   });
-  // };
   handleLoadMore = () => {
     this.setState({ loading: true });
   };

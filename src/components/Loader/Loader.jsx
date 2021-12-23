@@ -1,6 +1,4 @@
-import ReactLoader from 'react-loader-spinner';
-import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
-
+//I used this Loader before installation of React-loader
 const Loader = () => {
   return (
     <div>

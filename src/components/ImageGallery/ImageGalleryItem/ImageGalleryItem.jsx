@@ -1,4 +1,4 @@
-// import propTypes = require("prop-types");
+import PropTypes from 'prop-types';
 
 import styles from './ImageGalleryItem.module.css';
 
@@ -17,3 +17,10 @@ const ImageGalleryItem = props => {
 };
 
 export default ImageGalleryItem;
+
+ImageGalleryItem.propTypes = {
+  id: PropTypes.number,
+  src: PropTypes.string,
+  alt: PropTypes.string,
+  handleShowModal: PropTypes.func,
+};
