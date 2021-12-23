@@ -16,7 +16,7 @@ class App extends Component {
     querySubmited: '',
     page: 1,
     loadMore: false, //pereproverit!
-    showModal: false,
+    showModal: true,
   };
 
   handleSubmit = query => {
@@ -62,7 +62,7 @@ class App extends Component {
         <ImageGallery gallery={this.state.gallery} onShowModal={this.toggleModal} />
         {/* <Loader /> */}
         {!!this.state.gallery.length && <Button onClick={this.handleLoadMore} />}
-        {this.state.showModal && <Modal />}
+        {this.state.showModal && <Modal closeModal={() => this.toggleModal()} />}
       </div>
     );
   }
