@@ -2,13 +2,15 @@ import { Component } from 'react';
 import { photosApi } from './shared/services/photos';
 
 import Searchbar from './components/Searchbar';
-import Loader from './components/Loader';
+import Loader from 'react-loader-spinner';
+// import Loader from './components/Loader';
 import ImageGallery from './components/ImageGallery';
 // import ImageGalleryItem from './components/ImageGallery/ImageGalleryItem';
 import Button from './components/Button';
 import Modal from './components/Modal';
 
 import './App.css';
+import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
 
 class App extends Component {
   state = {
@@ -101,7 +103,9 @@ class App extends Component {
       <div className="App">
         <Searchbar onSubmit={this.handleSubmit} />
         <ImageGallery gallery={this.state.gallery} onShowModal={this.toggleModal} />
-        {this.state.loading && <Loader />}
+        {this.state.loading && (
+          <Loader type="Bars" color="#00BFFF" height={100} width={100} timeout={1000} />
+        )}
         {!!this.state.gallery.length && <Button onClick={this.handleLoadMore} />}
         {this.state.showModal && (
           <Modal closeModal={() => this.toggleModal()}>
