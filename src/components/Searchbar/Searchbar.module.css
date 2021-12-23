@@ -7,23 +7,18 @@
   height: 50px;
   background-color: royalblue;
 }
-.searchbarLabel {
+.form {
+  position: relative;
+}
+/* .searchbarLabel {
   position: absolute;
   display: block;
   width: 20px;
   height: 20px;
-  left: calc((100% - 300px) / 2);
+
   background-color: skyblue;
   border: 1px solid;
-}
-
-.searchbarLabel::before {
-}
-.searchbarSvg {
-  width: 18px;
-  height: 18px;
-  /* fill: olive; */
-}
+} */
 
 .searchbarInput {
   width: 300px;
@@ -32,4 +27,22 @@
 }
 
 .searchbarButton {
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  top: center;
+  width: 20px;
+  height: 20px;
+  border: 0;
+  background-color: transparent;
+  /* background-image: url('https://image.flaticon.com/icons/svg/149/149852.svg'); */
+  background-image: url('../../images/+search-lens.svg');
+
+  background-size: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.9;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  outline: none;
 }

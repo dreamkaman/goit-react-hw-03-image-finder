@@ -1,1 +1,0 @@
-export { productsApi } from './services';

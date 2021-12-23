@@ -1,8 +1,12 @@
-import { Children, Component } from 'react';
-import { photosApi } from '../../shared/photos';
+// import { Component } from 'react';
+import ImageGalleryItem from './ImageGalleryItem';
 
-class ImageGallery extends Component {
-  state = { gallery: null };
+import styles from './ImageGallery.module.css';
+
+// import { photosApi } from '../../shared/services/photos';
+
+const ImageGallery = ({ gallery }) => {
+  // state = { gallery: null };
 
   //   console.log(this.props);
 
@@ -13,12 +17,14 @@ class ImageGallery extends Component {
   // componentDidMount() {
   //   photosApi.searchPhotos((_page = 1), q);
   // }
+  console.log('gallery - ', gallery);
 
-  render() {
-    console.log(this.props);
+  const elements = gallery.map(image => {
+    return <ImageGalleryItem key={image.id} src={image.webformatURL} alt={image.tags} />;
+    // return `<li key=${image.id}><img src='${image.previewURL}' alt='${image.tags}'/></li>`;
+  });
 
-    return <ul className="gallery">{this.state.gallery && <li>Hallo!</li>}</ul>;
-  }
-}
+  return <ul className={styles.gallery}>{!!gallery.length && elements}</ul>;
+};
 
 export default ImageGallery;

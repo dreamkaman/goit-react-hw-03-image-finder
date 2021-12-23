@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import { photosApi } from '../../shared/photos';
+
 // import PropTypes from 'prop-types';
 
 import styles from './Searchbar.module.css';
@@ -16,18 +16,16 @@ class Searchbar extends Component {
   handleSubmit = event => {
     event.preventDefault();
 
-    photosApi.searchPhotos(2, this.state.query).then(res => res.data);
-
     this.props.onSubmit(this.state.query);
+
+    // this.setState({ query: '' });
   };
 
   render() {
     return (
       <header className={styles.searchbar}>
-        <form className="form" onSubmit={this.handleSubmit}>
-          <button type="submit" className={styles.searchbarButton}>
-            <span className="button-label">Search</span>
-          </button>
+        <form className={styles.form} onSubmit={this.handleSubmit}>
+          <button type="submit" className={styles.searchbarButton}></button>
 
           <input
             onChange={this.handleChange}
@@ -36,6 +34,7 @@ class Searchbar extends Component {
             autoComplete="false"
             autoFocus
             placeholder="Search images and photos"
+            value={this.state.query}
           />
         </form>
       </header>
