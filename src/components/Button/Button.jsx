@@ -2,9 +2,10 @@ import propTypes from 'prop-types';
 import styles from './Button.module.css';
 
 const Button = props => {
+  const { onClick } = props;
+
   return (
-    <button className={styles.loadMoreBtn} type="button" onClick={props.onClick}>
-      {/* onClick={this.props.onClick} */}
+    <button className={styles.loadMoreBtn} type="button" onClick={onClick}>
       Load more
     </button>
   );

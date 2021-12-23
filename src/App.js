@@ -101,7 +101,6 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Searchbar onSubmit={this.handleSubmit} />
         <ImageGallery gallery={this.state.gallery} onShowModal={this.toggleModal} />
         {this.state.loading && (
           <Loader type="Bars" color="#00BFFF" height={100} width={100} timeout={1000} />
@@ -112,6 +111,7 @@ class App extends Component {
             <img src={this.state.currentLargeImageURL} alt={this.state.currentTags} />
           </Modal>
         )}
+        <Searchbar onSubmit={this.handleSubmit} />
       </div>
     );
   }

@@ -5,14 +5,10 @@ import styles from './Modal.module.css';
 
 class Modal extends Component {
   componentDidMount() {
-    console.log('Modal componentDidMount()');
-
     window.addEventListener('keydown', this.handleKeyDown);
   }
 
   componentWillUnmount() {
-    console.log('Modal componentWillUnmount()');
-
     window.removeEventListener('keydown', this.handleKeyDown);
   }
 
@@ -23,7 +19,6 @@ class Modal extends Component {
   };
 
   handleBackdropClick = event => {
-    // console.log(event);
     if (event.target === event.currentTarget) {
       this.props.closeModal();
     }
@@ -31,8 +26,6 @@ class Modal extends Component {
 
   render() {
     const modalPortal = document.querySelector('#modal-root');
-    console.log('Modal props', this.props);
-    // const {} = this.props;
 
     return createPortal(
       <div className={styles.overlay} onClick={this.handleBackdropClick}>

@@ -17,8 +17,6 @@ class Searchbar extends Component {
     event.preventDefault();
 
     this.props.onSubmit(this.state.query);
-
-    // this.setState({ query: '' });
   };
 
   render() {
@@ -38,22 +36,6 @@ class Searchbar extends Component {
           />
         </form>
       </header>
-      //.......
-      // <div className={styles.searchbar}>
-      //   {/* <img src="../../images/search-lens.svg" alt="fck" /> */}
-      //   <label className={styles.searchbarLabel} htmlFor="search">
-      //     <svg className={styles.searchbarSvg}>
-      //       <use width="20" height="20" href="../../images/search-lens.svg"></use>
-      //     </svg>
-      //   </label>
-      //   <input
-      //     onChange={this.handleChange}
-      //     className={styles.searchbarInput}
-      //     type="text"
-      //     name="search"
-      //     placeholder=""
-      //   />
-      // </div>
     );
   }
 }
