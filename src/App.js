@@ -6,6 +6,7 @@ import Loader from './components/Loader';
 import ImageGallery from './components/ImageGallery';
 // import ImageGalleryItem from './components/ImageGallery/ImageGalleryItem';
 import Button from './components/Button';
+import Modal from './components/Modal';
 
 import './App.css';
 
@@ -14,7 +15,8 @@ class App extends Component {
     gallery: [],
     querySubmited: '',
     page: 1,
-    loadMore: 'false',
+    loadMore: false, //pereproverit!
+    showModal: false,
   };
 
   handleSubmit = query => {
@@ -49,13 +51,18 @@ class App extends Component {
     });
   };
 
+  toggleModal() {
+    this.setState(prevstate => ({ showModal: !prevstate.showModal }));
+  }
+
   render() {
     return (
       <div className="App">
         <Searchbar onSubmit={this.handleSubmit} />
-        <ImageGallery gallery={this.state.gallery} />
+        <ImageGallery gallery={this.state.gallery} onShowModal={this.toggleModal} />
         {/* <Loader /> */}
         {!!this.state.gallery.length && <Button onClick={this.handleLoadMore} />}
+        {this.state.showModal && <Modal />}
       </div>
     );
   }
