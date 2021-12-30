@@ -77,7 +77,7 @@ class App extends Component {
         )}
         {!!this.state.gallery.length && <Button onClick={this.handleLoadMore} />}
         {this.state.showModal && (
-          <Modal closeModal={() => this.toggleModal()}>
+          <Modal closeModal={this.toggleModal}>
             <img src={this.state.currentLargeImageURL} alt={this.state.currentTags} />
           </Modal>
         )}
